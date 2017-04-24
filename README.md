@@ -12,3 +12,5 @@ Example: 10 count 4 count 25 equals => 3
 Another Example: 2 avg 4 avg 6 avg 8 avg 10 equals => 6
 
 To use the factorial operator (!), enter a number and hit the factorial button for the result
+
+**NOTE: Always hit "AC" after each calculation or else you may receive surprising results**
