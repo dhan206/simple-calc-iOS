@@ -14,6 +14,7 @@
 		566223A31EA3F0D600030A8A /* simple_calcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566223A21EA3F0D600030A8A /* simple_calcTests.swift */; };
 		566223AE1EA3F0D600030A8A /* simple_calcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566223AD1EA3F0D600030A8A /* simple_calcUITests.swift */; };
 		566223BC1EA3F11200030A8A /* SimpleCalcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566223BB1EA3F11200030A8A /* SimpleCalcViewController.swift */; };
+		56D0E38D1EADB8D80011783E /* CalculationHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D0E38C1EADB8D80011783E /* CalculationHistory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		566223AD1EA3F0D600030A8A /* simple_calcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_calcUITests.swift; sourceTree = "<group>"; };
 		566223AF1EA3F0D600030A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		566223BB1EA3F11200030A8A /* SimpleCalcViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleCalcViewController.swift; path = ../SimpleCalcViewController.swift; sourceTree = "<group>"; };
+		56D0E38C1EADB8D80011783E /* CalculationHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				566223BB1EA3F11200030A8A /* SimpleCalcViewController.swift */,
+				56D0E38C1EADB8D80011783E /* CalculationHistory.swift */,
 				5662238D1EA3F0D600030A8A /* AppDelegate.swift */,
 				566223911EA3F0D600030A8A /* Main.storyboard */,
 				566223941EA3F0D600030A8A /* Assets.xcassets */,
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56D0E38D1EADB8D80011783E /* CalculationHistory.swift in Sources */,
 				5662238E1EA3F0D600030A8A /* AppDelegate.swift in Sources */,
 				566223BC1EA3F11200030A8A /* SimpleCalcViewController.swift in Sources */,
 			);

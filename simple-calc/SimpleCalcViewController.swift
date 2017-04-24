@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class SimpleCalcViewController: UIViewController {
+class SimpleCalcViewController: UIViewController, DataEnteredDelegate {
     
     private var CurrentCalculation: Int!
     
@@ -27,13 +27,28 @@ class SimpleCalcViewController: UIViewController {
     
     private var CountOrAveraged: Bool?
     
+    private var CalculationString: String = ""
+    
+    private var LocalCalculationHistory: [String] = []
+    
     @IBOutlet weak var ResultsField: UITextField!
     
     @IBOutlet weak var Button0: UIButton!
     
+    func userDidEnterInformation(info: [String]) {
+        self.LocalCalculationHistory = info
+        print("made it back \(LocalCalculationHistory)")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let historyViewController = segue.destination as! CalculationHistory
+        historyViewController.CalculationHistory = LocalCalculationHistory
+        historyViewController.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("view loaded")
         reset()
     }
     
@@ -47,7 +62,7 @@ class SimpleCalcViewController: UIViewController {
     }
     
     private func updateResult() {
-        ResultsField.text = String(CurrentCalculation)
+        ResultsField?.text = String(CurrentCalculation)
     }
     
     private func reset() {
@@ -58,12 +73,14 @@ class SimpleCalcViewController: UIViewController {
         Count = [Int]()
         Average = [Int]()
         CountOrAveraged = false
+        CalculationString = ""
         Entered = false
         updateResult()
     }
     
     @IBAction func OperatorClick(_ sender: UIButton) {
         Operator = sender.titleLabel!.text
+        CalculationString += " " + Operator! + " "
     }
     
     @IBAction func NumberClick(_ sender: UIButton) {
@@ -71,12 +88,15 @@ class SimpleCalcViewController: UIViewController {
             if Operator == nil {
                 FirstNumber = (FirstNumber * 10) + Int(sender.titleLabel!.text!)!
                 CurrentCalculation = FirstNumber
+                CalculationString += String(FirstNumber)
             } else if Operator != nil && !Entered {
                 SecondNumber = (SecondNumber * 10) + Int(sender.titleLabel!.text!)!
                 CurrentCalculation = SecondNumber
+                CalculationString += String(SecondNumber)
             } else if Operator != nil && Entered {
                 SecondNumber = (SecondNumber * 10) + Int(sender.titleLabel!.text!)!
                 CurrentCalculation = SecondNumber
+                CalculationString += String(SecondNumber)
             }
         }
         updateResult()
@@ -109,6 +129,10 @@ class SimpleCalcViewController: UIViewController {
             FirstNumber = CurrentCalculation
             Average = [Int]()
         }
+        CalculationString += " = " + String(CurrentCalculation)
+        LocalCalculationHistory.append(CalculationString)
+        print(LocalCalculationHistory)
+        CalculationString = ""
         Entered = true
         updateResult()
     }
@@ -121,6 +145,7 @@ class SimpleCalcViewController: UIViewController {
         } else {
             SecondNumber = 0
         }
+        CalculationString += " count "
     }
     
     @IBAction func AverageButton(_ sender: UIButton) {
@@ -131,6 +156,7 @@ class SimpleCalcViewController: UIViewController {
         } else {
             SecondNumber = 0
         }
+        CalculationString += " avg "
     }
     
     @IBAction func FactorialButton(_ sender: UIButton) {
@@ -139,6 +165,10 @@ class SimpleCalcViewController: UIViewController {
         SecondNumber = 0
         Entered = true
         updateResult()
+        CalculationString += "! = " + String(CurrentCalculation)
+        LocalCalculationHistory.append(CalculationString)
+        print(LocalCalculationHistory)
+        CalculationString = ""
     }
     
     
