@@ -37,7 +37,6 @@ class SimpleCalcViewController: UIViewController, DataEnteredDelegate {
     
     func userDidEnterInformation(info: [String]) {
         self.LocalCalculationHistory = info
-        print("made it back \(LocalCalculationHistory)")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,7 +47,6 @@ class SimpleCalcViewController: UIViewController, DataEnteredDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("view loaded")
         reset()
     }
     
@@ -131,7 +129,6 @@ class SimpleCalcViewController: UIViewController, DataEnteredDelegate {
         }
         CalculationString += " = " + String(CurrentCalculation)
         LocalCalculationHistory.append(CalculationString)
-        print(LocalCalculationHistory)
         CalculationString = ""
         Entered = true
         updateResult()
@@ -167,7 +164,6 @@ class SimpleCalcViewController: UIViewController, DataEnteredDelegate {
         updateResult()
         CalculationString += "! = " + String(CurrentCalculation)
         LocalCalculationHistory.append(CalculationString)
-        print(LocalCalculationHistory)
         CalculationString = ""
     }
     
